@@ -1,14 +1,16 @@
-var currency = 0;
-var clickingPower = 1;
-var upgradeCost = 10;
-var autoClickers = 0;
-var autoClickersCost = 50;
+var mainGame = {
+     currency = 0;
+     clickingPower = 1;
+     upgradeCost = 10;
+     autoClickers = 0;
+     autoClickersCost = 50;
+}
 function addClick(){
-    currency += clickingPower;
-    document.getElementById("clicks").textContent = "Clicks: " + currency;
-    if (currency > 1000){
+    mainGame.currency += mainGame.clickingPower;
+    if (mainGame.currency > 1000){
     document.getElementById("reward").textContent = "This is NOT a Jojo´s reference";
     }
+    uodate();
 }
 function increaseClicking(){
     if (currency >= upgradeCost){
@@ -16,9 +18,6 @@ function increaseClicking(){
         currency -= upgradeCost;
         upgradeCost = parseInt(upgradeCost*1.1)+1;
     }
-    document.getElementById("clicks").textContent = "Clicks: " + currency;
-    document.getElementById("clickPower").textContent = "Clicking Power: " + clickingPower;
-    document.getElementById("upgradePrice").textContent = "Cost: " + upgradeCost;
 }
 function increaseAutoClickers(){
     if (currency >= autoClickersCost){
@@ -26,12 +25,18 @@ function increaseAutoClickers(){
         currency -= autoClickersCost;
         autoClickersCost = parseInt(autoClickersCost*1.1)+1;
     }
-    document.getElementById("autoClickers").textContent = "Autoclickers: " + autoClickers;
-    document.getElementById("autoClickersCost").textContent = "Cost: " + autoClickersCost;
 }
 function autoClicker(){
     currency += autoClickers;
 }
-var mainAutoClicking = window.setInterval(function(){
-    autoClicker
+function update(){
+    document.getElementById("clicks").textContent = "Clicks: " + currency;
+    document.getElementById("clickPower").textContent = "Clicking Power: " + clickingPower;
+    document.getElementById("upgradePrice").textContent = "Cost: " + upgradeCost;
+    document.getElementById("autoClickers").textContent = "Autoclickers: " + autoClickers;
+    document.getElementById("autoClickersCost").textContent = "Cost: " + autoClickersCost;
+}
+window.setInterval(function(){
+    autoClicker();
+    update();
 }, 1000);
