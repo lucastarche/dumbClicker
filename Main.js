@@ -4,6 +4,9 @@ var upgradeCost = 10;
 function addClick(){
     currency += clickingPower;
     document.getElementById("clicks").textContent = "Clicks: " + currency;
+    if (currency > 1000){
+    document.getElementById("reward").textContent = "This is NOT a Jojo´s reference";
+    }
 }
 function increaseClicking(){
     if (currency >= upgradeCost){
@@ -14,7 +17,4 @@ function increaseClicking(){
     document.getElementById("clicks").textContent = "Clicks: " + currency;
     document.getElementById("clickPower").textContent = "Clicking Power: " + clickingPower;
     document.getElementById("upgradePrice").textContent = "Cost: " + upgradeCost;
-}
-if (currency > 1000){
-    document.getElementById("reward").textContent = "This is NOT a Jojo´s reference";
 }
