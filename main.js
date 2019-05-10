@@ -32,19 +32,19 @@ function increaseAutoClickers(){
     }
 }
 function autoClicker(){
-    mainGame.currency += clicksPerSecond
+    mainGame.currency += clicksPerSecond;
 }
 function upgradeAutoClickers(){
      if(mainGame.currency >= mainGame.upgradeAutoClickersCost){
-          mainGame.currency -= mainGame.upgradeAutoClickersCost
-          mainGame.autoClickerMultiplier++
+          mainGame.currency -= mainGame.upgradeAutoClickersCost;
+          mainGame.autoClickersMultiplier++;
           mainGame.upgradeAutoClickersCost *= 3;
      }
 }
 function update(){
     document.getElementById("clicks").innerHTML = "Clicks: " + mainGame.currency;
     document.getElementById("clickPower").innerHTML = "Clicking Power: " + mainGame.clickingPower;
-    document.getElementById("upgradeCost").innerHTML = "Cost: " + mainGame.upgradeClickCost;
+    document.getElementById("upgradeClickCost").innerHTML = "Cost: " + mainGame.upgradeClickCost;
     document.getElementById("autoClickers").innerHTML = "Autoclickers: " + mainGame.autoClickers;
     document.getElementById("autoClickersCost").innerHTML = "Cost: " + mainGame.autoClickersCost;
     document.getElementById("clicksPerSecond").innerHTML = "CPS: " + clicksPerSecond;
@@ -55,4 +55,3 @@ window.setInterval(function(){
     autoClicker();
     update();
 }, 1000);
- 

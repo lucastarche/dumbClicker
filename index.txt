@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Clicking...</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="main.js"></script>
+        <font size="+2">
+            <div id="clicks">Clicks: 0</div>
+        </font>
+        <button onclick="addClick()">Click to win</button><br><br>
+        <div id="clickPower">Clicking Power: 1</div>
+        <div id="upgradeClickCost">Cost: 10</div><br>
+        <button onclick="increaseClicking()">Click to upgrade</button><br><br>
+        <div id="autoClickers">Autoclickers: 0</div>
+        <div id="autoClickersCost">Cost: 50</div><br>
+        <div id="clicksPerSecond">CPS: 0</div><br>
+        <button onclick="increaseAutoClickers()">Click to upgrade</button>
+        <button onclick="upgradeAutoClickers()">Click to level up</button><div="upgradeAutoClickersCost"> Cost: 500</div>
+        <font size="+7">
+            <div id="reward"></div>
+        </font>
+    </body>
+</html>
