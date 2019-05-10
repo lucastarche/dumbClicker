@@ -47,7 +47,7 @@ function update(){
     document.getElementById("autoClickers").innerHTML = "Autoclickers: " + mainGame.autoClickers;
     document.getElementById("autoClickersCost").innerHTML = "Cost: " + mainGame.autoClickersCost;
     document.getElementById("clicksPerSecond").innerHTML = "CPS: " + 
-         (mainGame.autoClickers*(Math.pow(2, mainGame.autoClickersMuliplier)));
+         (mainGame.autoClickers*(Math.pow(2, mainGame.autoClickersMultiplier)));
     document.getElementById("upgradeAutoClickersCost").innerHTML = "Cost: " + mainGame.upgradeAutoClickersCost;
 }
 window.setInterval(function(){
