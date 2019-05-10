@@ -32,7 +32,7 @@ function increaseAutoClickers(){
     }
 }
 function autoClicker(){
-    mainGame.currency += mainGame.autoClickers*(2^mainGame.autoClickersMuliplier);
+    mainGame.currency += mainGame.autoClickers*(Math.pow(2, mainGame.autoClickersMultiplier));
 }
 function upgradeAutoClickers(){
      if(mainGame.currency >= mainGame.upgradeAutoClickersCost){
@@ -49,7 +49,7 @@ function update(){
     document.getElementById("autoClickersCost").innerHTML = "Cost: " + mainGame.autoClickersCost;
     document.getElementById("clicksPerSecond").innerHTML = "CPS: " + clicksPerSecond;
     document.getElementById("upgradeAutoClickersCost").innerHTML = "Cost: " + mainGame.upgradeAutoClickersCost;
-    clicksPerSecond = mainGame.autoClickers*(2^mainGame.autoClickersMuliplier);
+    clicksPerSecond = mainGame.autoClickers*(Math.pow(2, mainGame.autoClickersMuliplier));
 }
 window.setInterval(function(){
     autoClicker();
