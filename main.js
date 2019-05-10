@@ -41,13 +41,13 @@ function upgradeAutoClickers(){
      }
 }
 function update(){
-    clicksPerSecond = mainGame.autoClickers*(Math.pow(2, mainGame.autoClickersMuliplier));
     document.getElementById("clicks").innerHTML = "Clicks: " + mainGame.currency;
     document.getElementById("clickPower").innerHTML = "Clicking Power: " + mainGame.clickingPower;
     document.getElementById("upgradeClickCost").innerHTML = "Cost: " + mainGame.upgradeClickCost;
     document.getElementById("autoClickers").innerHTML = "Autoclickers: " + mainGame.autoClickers;
     document.getElementById("autoClickersCost").innerHTML = "Cost: " + mainGame.autoClickersCost;
-    document.getElementById("clicksPerSecond").innerHTML = "CPS: " + clicksPerSecond;
+    document.getElementById("clicksPerSecond").innerHTML = "CPS: " + 
+         (mainGame.autoClickers*(Math.pow(2, mainGame.autoClickersMuliplier)));
     document.getElementById("upgradeAutoClickersCost").innerHTML = "Cost: " + mainGame.upgradeAutoClickersCost;
 }
 window.setInterval(function(){
