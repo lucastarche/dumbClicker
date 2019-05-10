@@ -30,11 +30,11 @@ function autoClicker(){
     mainGame.currency += mainGame.autoClickers;
 }
 function update(){
-    document.getElementById("clicks").textContent = "Clicks: " + mainGame.currency;
-    document.getElementById("clickPower").textContent = "Clicking Power: " + mainGame.clickingPower;
-    document.getElementById("upgradePrice").textContent = "Cost: " + mainGame.upgradeCost;
-    document.getElementById("autoClickers").textContent = "Autoclickers: " + mainGame.autoClickers;
-    document.getElementById("autoClickersCost").textContent = "Cost: " + mainGame.autoClickersCost;
+    document.getElementById("clicks").innerHTML = "Clicks: " + mainGame.currency;
+    document.getElementById("clickPower").innerHTML = "Clicking Power: " + mainGame.clickingPower;
+    document.getElementById("upgradePrice").innerHTML = "Cost: " + mainGame.upgradeCost;
+    document.getElementById("autoClickers").innerHTML = "Autoclickers: " + mainGame.autoClickers;
+    document.getElementById("autoClickersCost").innerHTML = "Cost: " + mainGame.autoClickersCost;
 }
 window.setInterval(function(){
     autoClicker();
