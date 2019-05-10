@@ -17,6 +17,7 @@ function increaseClicking(){
         mainGame.clickingPower+=1;
         mainGame.currency -= mainGame.upgradeCost;
         mainGame.upgradeCost = parseInt(mainGame.upgradeCost*1.1)+1;
+         update();
     }
 }
 function increaseAutoClickers(){
@@ -24,6 +25,7 @@ function increaseAutoClickers(){
         mainGame.autoClickers++;
         mainGame.currency -= mainGame.autoClickersCost;
         mainGame.autoClickersCost = parseInt(mainGame.autoClickersCost*1.1)+1;
+        update();
     }
 }
 function autoClicker(){
