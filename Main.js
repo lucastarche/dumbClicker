@@ -1,6 +1,7 @@
 var currency = 0;
 var clickingPower = 1;
 var upgradeCost = 10;
+var autoClickers = 0;
 function addClick(){
     currency += clickingPower;
     document.getElementById("clicks").textContent = "Clicks: " + currency;
@@ -18,3 +19,9 @@ function increaseClicking(){
     document.getElementById("clickPower").textContent = "Clicking Power: " + clickingPower;
     document.getElementById("upgradePrice").textContent = "Cost: " + upgradeCost;
 }
+function autoClicker(){
+    currency += autoClickers;
+}
+var mainAutoclicking = window.setInterval(function(){
+    autoClicker
+}, 1000);
