@@ -1,9 +1,12 @@
 var mainGame = {
      currency: 0,
      clickingPower: 1,
-     upgradeCost: 10,
+     upgradeClickCost: 10,
      autoClickers: 0,
      autoClickersCost: 50,
+     autoClickerMultiplier: 0,
+     upgradeAutoClickersCost: 500,
+     clicksPerSecond = this.autoClickers*(2^this.autoClickerMuliplier),
 }
 function addClick(){
     mainGame.currency += mainGame.clickingPower;
@@ -13,9 +16,9 @@ function addClick(){
     update();
 }
 function increaseClicking(){
-    if (mainGame.currency >= mainGame.upgradeCost){
+    if (mainGame.currency >= mainGame.upgradeClickCost){
         mainGame.clickingPower+=1;
-        mainGame.currency -= mainGame.upgradeCost;
+        mainGame.currency -= mainGame.upgradeClickCost;
         mainGame.upgradeCost = parseInt(mainGame.upgradeCost*1.1)+1;
          update();
     }
@@ -29,14 +32,23 @@ function increaseAutoClickers(){
     }
 }
 function autoClicker(){
-    mainGame.currency += mainGame.autoClickers;
+    mainGame.currency += mainGame.clicksPerSecond
+}
+function upgradeAutoClickers(){
+     if(mainGame.currency >= mainGame.upgradeAutoClickersCost){
+          mainGame.currency -= mainGame.upgradeAutoClickersCost
+          mainGame.autoClickerMultiplier++
+          mainGame.upgradeAutoClickersCost *= 3;
+     }
 }
 function update(){
     document.getElementById("clicks").innerHTML = "Clicks: " + mainGame.currency;
     document.getElementById("clickPower").innerHTML = "Clicking Power: " + mainGame.clickingPower;
-    document.getElementById("upgradePrice").innerHTML = "Cost: " + mainGame.upgradeCost;
+    document.getElementById("clickUpgradePrice").innerHTML = "Cost: " + mainGame.upgradeCost;
     document.getElementById("autoClickers").innerHTML = "Autoclickers: " + mainGame.autoClickers;
     document.getElementById("autoClickersCost").innerHTML = "Cost: " + mainGame.autoClickersCost;
+    document.getElementById("clicksPerSecond").innerHTML = "CPS: " + mainGame.autoClickersCost;
+    document.getElementById("upgradeAutoClickersCost").innerHTML = "Cost: " + mainGame.upgradeAutoClickersCost;
 }
 window.setInterval(function(){
     autoClicker();
