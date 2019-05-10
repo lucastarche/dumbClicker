@@ -6,8 +6,8 @@ var mainGame = {
      autoClickersCost: 50,
      autoClickerMultiplier: 0,
      upgradeAutoClickersCost: 500,
-     clicksPerSecond = this.autoClickers*(2^this.autoClickerMuliplier),
 }
+var clicksPerSecond = mainGame.autoClickers*(2^mainGame.autoClickerMuliplier);
 function addClick(){
     mainGame.currency += mainGame.clickingPower;
     if (mainGame.currency > 1000){
@@ -32,7 +32,7 @@ function increaseAutoClickers(){
     }
 }
 function autoClicker(){
-    mainGame.currency += mainGame.clicksPerSecond
+    mainGame.currency += clicksPerSecond
 }
 function upgradeAutoClickers(){
      if(mainGame.currency >= mainGame.upgradeAutoClickersCost){
@@ -47,8 +47,9 @@ function update(){
     document.getElementById("clickUpgradePrice").innerHTML = "Cost: " + mainGame.upgradeCost;
     document.getElementById("autoClickers").innerHTML = "Autoclickers: " + mainGame.autoClickers;
     document.getElementById("autoClickersCost").innerHTML = "Cost: " + mainGame.autoClickersCost;
-    document.getElementById("clicksPerSecond").innerHTML = "CPS: " + mainGame.autoClickersCost;
+    document.getElementById("clicksPerSecond").innerHTML = "CPS: " + clicksPerSecond;
     document.getElementById("upgradeAutoClickersCost").innerHTML = "Cost: " + mainGame.upgradeAutoClickersCost;
+    clicksPerSecond = mainGame.autoClickers*(2^mainGame.autoClickerMuliplier);
 }
 window.setInterval(function(){
     autoClicker();
