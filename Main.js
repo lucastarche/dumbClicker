@@ -54,3 +54,4 @@ window.setInterval(function(){
     autoClicker();
     update();
 }, 1000);
+ 
