@@ -32,7 +32,7 @@ function increaseAutoClickers(){
     }
 }
 function autoClicker(){
-    mainGame.currency += clicksPerSecond;
+    mainGame.currency += mainGame.autoClickers*(2^mainGame.autoClickersMuliplier);
 }
 function upgradeAutoClickers(){
      if(mainGame.currency >= mainGame.upgradeAutoClickersCost){
