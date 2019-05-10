@@ -15,3 +15,6 @@ function increaseClicking(){
     document.getElementById("clickPower").textContent = "Clicking Power: " + clickingPower;
     document.getElementById("upgradePrice").textContent = "Cost: " + upgradeCost;
 }
+if (currency > 1000){
+    document.getElementById("reward").textContent = "This is NOT a Jojo´s reference";
+}
