@@ -58,7 +58,7 @@ function saveGame(){
     localStorage.setItem("dumbClickerSave", JSON.stringify(gameData));
     document.getElementById("savedGame").innerHTML 
     = "Game has been saved!";
-    window.setTimeout(function{
+    window.setTimeout(function(){
         document.getElementById("savedGame").innerHTML
         = " ";
     }, 5000);
