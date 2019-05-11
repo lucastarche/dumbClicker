@@ -70,7 +70,7 @@ function saveGame(){
     }, 5000);
 }//-->
 //<--Load saved game 
-var savegame = JSON.parse(localStorage.getItem("dumbClickerSave"))
+var savegame = JSON.parse(localStorage.getItem("dumbClickerSave"));
 if (savegame !== null) {
   gameData = savegame;
   update();
