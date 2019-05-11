@@ -54,7 +54,19 @@ function update(){
     document.getElementById("gen1MultiplierCost").innerHTML 
     = "Upgrade: " + gameData.gen1MultiplierCost;
 }
+function saveGame(){
+    localStorage.setItem("dumbClickerSave", JSON.stringify(gameData));
+    alert("Game has been saved!");
+}
+//<--Load saved game 
+var savegame = JSON.parse(localStorage.getItem("dumbClickerSave"))
+if (savegame !== null) {
+  gameData = savegame
+}//-->
 window.setInterval(function(){
     autoClicking();
     update();
-}, 1000);
+}, 1000); //Autoclickers y update cada segundo
+window.setInterval(function(){
+    saveGame();
+}, 60000); //Autosave cada minuto
