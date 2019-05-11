@@ -44,7 +44,7 @@ function upgradeAutoclickers(){
     }
 }
 function buyMax(){
-    while(gameData.currency >= gameData.gen1MultiplierCost){
+    while(gameData.currency >= gameData.generator1Cost){
         addAutoclickers();
     }
 }
