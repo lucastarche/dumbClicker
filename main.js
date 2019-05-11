@@ -72,7 +72,7 @@ function saveGame(){
 //<--Load saved game 
 var savegame = JSON.parse(localStorage.getItem("dumbClickerSave"))
 if (savegame !== null) {
-  gameData = savegame
+  gameData = savegame;
   update();
 }//-->
 window.setInterval(function(){
