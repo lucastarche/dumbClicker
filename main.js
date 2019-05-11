@@ -7,6 +7,11 @@ var gameData = {
     generator1Multiplier: 1,
     gen1MultiplierCost: 500,
 };
+//<--Load saved game 
+var savegame = JSON.parse(localStorage.getItem("dumbClickerSave"));
+if (savegame !== null) {
+  gameData = savegame;
+}//-->
 function addClick(){
     gameData.currency += gameData.clickPower;
     update();
@@ -68,11 +73,6 @@ function saveGame(){
         document.getElementById("savedGame").innerHTML
         = " ";
     }, 5000);
-}//-->
-//<--Load saved game 
-var savegame = JSON.parse(localStorage.getItem("dumbClickerSave"));
-if (savegame !== null) {
-  gameData = savegame;
 }//-->
 window.setInterval(function(){
     autoClicking();
