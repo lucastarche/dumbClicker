@@ -52,11 +52,16 @@ function update(){
     document.getElementById("generator1Cost").innerHTML 
     = "Buy cookie bakery<br>Cost: " + gameData.generator1Cost;
     document.getElementById("gen1MultiplierCost").innerHTML 
-    = "Upgrade: " + gameData.gen1MultiplierCost;
+    = "x2 multiplier<pr>Cost: " + gameData.gen1MultiplierCost;
 }
 function saveGame(){
     localStorage.setItem("dumbClickerSave", JSON.stringify(gameData));
-    alert("Game has been saved!");
+    document.getElementById("savedGame").innerHTML 
+    = "Game has been saved!";
+    window.setTimeout(function{
+        document.getElementById("savedGame").innerHTML
+        = " ";
+    }, 5000);
 }
 //<--Load saved game 
 var savegame = JSON.parse(localStorage.getItem("dumbClickerSave"))
