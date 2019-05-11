@@ -1,58 +1,60 @@
-var mainGame = {
-     currency: 0,
-     clickingPower: 1,
-     upgradeClickCost: 10,
-     autoClickers: 0,
-     autoClickersCost: 50,
-     autoClickersMultiplier: 0,
-     upgradeAutoClickersCost: 500,
-}
+var gameData = {
+    currency: 10,
+    clickPower: 1,
+    upgradeClickCost: 10,
+    generator1: 0,
+    generator1Cost: 25,
+    generator1Multiplier: 1,
+    gen1MultiplierCost: 500,
+};
 function addClick(){
-    mainGame.currency += mainGame.clickingPower;
-    if (mainGame.currency > 1000){
-    document.getElementById("reward").textContent = "This is NOT a Jojo´s reference";
-    }
+    gameData.currency += gameData.clickPower;
     update();
 }
-function increaseClicking(){
-    if (mainGame.currency >= mainGame.upgradeClickCost){
-        mainGame.clickingPower+=1;
-        mainGame.currency -= mainGame.upgradeClickCost;
-        mainGame.upgradeClickCost = parseInt(mainGame.upgradeClickCost*1.1)+1;
-         update();
-    }
-}
-function increaseAutoClickers(){
-    if (mainGame.currency >= mainGame.autoClickersCost){
-        mainGame.autoClickers++;
-        mainGame.currency -= mainGame.autoClickersCost;
-        mainGame.autoClickersCost = parseInt(mainGame.autoClickersCost*1.1)+1;
+function upgradeClicks(){
+    if (gameData.currency >= gameData.upgradeClickCost){
+        gameData.currency -= gameData.upgradeClickCost;
+        gameData.upgradeClickCost = parseInt(gameData.upgradeClickCost *= 1.2);
+        gameData.clickPower++;
         update();
     }
 }
-function autoClicker(){
-    mainGame.currency += mainGame.autoClickers*(Math.pow(2, mainGame.autoClickersMultiplier));
+function autoClicking(){
+    gameData.currency += (gameData.generator1*gameData.generator1Multiplier);
+    update();
 }
-function upgradeAutoClickers(){
-     if(mainGame.currency >= mainGame.upgradeAutoClickersCost){
-          mainGame.currency -= mainGame.upgradeAutoClickersCost;
-          mainGame.autoClickersMultiplier++;
-          mainGame.upgradeAutoClickersCost *= 3;
-     }
+function addAutoclickers(){
+    if (gameData.currency >= gameData.generator1Cost){
+        gameData.currency -= gameData.generator1Cost;
+        gameData.generator1Cost = parseInt(gameData.generator1Cost *= 1.2);
+        gameData.generator1++;
+        update();
+    }
+}
+function upgradeAutoclickers(){
+    if (gameData.currency >= gameData.gen1MultiplierCost){
+        gameData.currency -= gameData.gen1MultiplierCost;
+        gameData.generator1Multiplier *= 2;
+        gameData.gen1MultiplierCost *= 3;
+    }
 }
 function update(){
-    document.getElementById("clicks").innerHTML = "Clicks: " + mainGame.currency;
-    document.getElementById("clickPower").innerHTML = "Clicking Power: " + mainGame.clickingPower;
-    document.getElementById("upgradeClickCost").innerHTML = "Cost: " + mainGame.upgradeClickCost;
-    document.getElementById("autoClickers").innerHTML = "Autoclickers: " + mainGame.autoClickers;
-    document.getElementById("autoClickersCost").innerHTML = "Cost: " + mainGame.autoClickersCost;
-    document.getElementById("clicksPerSecond").innerHTML = "CPS: " + 
-         (mainGame.autoClickers*(Math.pow(2, mainGame.autoClickersMultiplier)));
-    document.getElementById("upgradeAutoClickersCost").innerHTML = "Cost: " + mainGame.upgradeAutoClickersCost;
-    document.getElementByID("autoClickersMultiplier").innerHTML = "Autoclickers multiplier: x" + 
-         (Math.pow(2,mainGame.autoClickersMultiplier);
+    document.getElementById("currency").innerHTML 
+    = "Money: " + gameData.currency;
+    document.getElementById("upgradeClicksCost").innerHTML 
+    = "Upgrade Clicks<br>Cost: " + gameData.upgradeClickCost;
+    document.getElementById("clickingPower").innerHTML 
+    = "Money/Click: " + gameData.clickPower;
+    document.getElementById("generator1").innerHTML 
+    = "Cookie bakeries: " + gameData.generator1;
+    document.getElementById("generator1Multiplier").innerHTML 
+    = "Multiplier: x" + gameData.generator1Multiplier;
+    document.getElementById("generator1Cost").innerHTML 
+    = "Buy cookie bakery<br>Cost: " + gameData.generator1Cost;
+    document.getElementById("gen1MultiplierCost").innerHTML 
+    = "Upgrade: " + gameData.gen1MultiplierCost;
 }
 window.setInterval(function(){
-    autoClicker();
+    autoClicking();
     update();
 }, 1000);
