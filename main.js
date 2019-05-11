@@ -73,7 +73,6 @@ function saveGame(){
 var savegame = JSON.parse(localStorage.getItem("dumbClickerSave"));
 if (savegame !== null) {
   gameData = savegame;
-  update();
 }//-->
 window.setInterval(function(){
     autoClicking();
