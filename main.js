@@ -38,6 +38,11 @@ function upgradeAutoclickers(){
         gameData.gen1MultiplierCost *= 3;
     }
 }
+function buyMax(){
+    while(gameData.currency >= gameData.gen1MultiplierCost){
+        addAutoclickers();
+    }
+}
 function update(){
     document.getElementById("currency").innerHTML 
     = "Money: " + gameData.currency;
@@ -54,6 +59,7 @@ function update(){
     document.getElementById("gen1MultiplierCost").innerHTML 
     = "x2 multiplier<br>Cost: " + gameData.gen1MultiplierCost;
 }
+//<--Saves the game, manually or automatically
 function saveGame(){
     localStorage.setItem("dumbClickerSave", JSON.stringify(gameData));
     document.getElementById("savedGame").innerHTML 
@@ -62,11 +68,12 @@ function saveGame(){
         document.getElementById("savedGame").innerHTML
         = " ";
     }, 5000);
-}
+}//-->
 //<--Load saved game 
 var savegame = JSON.parse(localStorage.getItem("dumbClickerSave"))
 if (savegame !== null) {
   gameData = savegame
+  update();
 }//-->
 window.setInterval(function(){
     autoClicking();
