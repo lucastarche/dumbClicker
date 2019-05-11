@@ -52,7 +52,7 @@ function update(){
     document.getElementById("generator1Cost").innerHTML 
     = "Buy cookie bakery<br>Cost: " + gameData.generator1Cost;
     document.getElementById("gen1MultiplierCost").innerHTML 
-    = "x2 multiplier<pr>Cost: " + gameData.gen1MultiplierCost;
+    = "x2 multiplier<br>Cost: " + gameData.gen1MultiplierCost;
 }
 function saveGame(){
     localStorage.setItem("dumbClickerSave", JSON.stringify(gameData));
