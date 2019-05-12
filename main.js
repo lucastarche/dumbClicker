@@ -50,17 +50,17 @@ function buyMax(){
 }
 function update(){
     document.getElementById("currency").innerHTML 
-    = "Money: " + gameData.currency;
+    = "Knowldedge: " + gameData.currency;
     document.getElementById("upgradeClicksCost").innerHTML 
-    = "Upgrade Clicks<br>Cost: " + gameData.upgradeClickCost;
+    = "Buy a book<br>Cost: " + gameData.upgradeClickCost;
     document.getElementById("clickingPower").innerHTML 
-    = "Money/Click: " + gameData.clickPower;
+    = "Knowldedge/Click: " + gameData.clickPower;
     document.getElementById("generator1").innerHTML 
-    = "Cookie bakeries: " + gameData.generator1;
+    = "Audiobooks: " + gameData.generator1;
     document.getElementById("generator1Multiplier").innerHTML 
     = "Multiplier: x" + gameData.generator1Multiplier;
     document.getElementById("generator1Cost").innerHTML 
-    = "Buy cookie bakery<br>Cost: " + gameData.generator1Cost;
+    = "Buy an audiobook<br>Cost: " + gameData.generator1Cost;
     document.getElementById("gen1MultiplierCost").innerHTML 
     = "x2 multiplier<br>Cost: " + gameData.gen1MultiplierCost;
 }
